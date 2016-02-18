@@ -33,10 +33,28 @@ def binToChar(b):
 def generateSignal(s):
     return '1' + stringToBinary(s) + endT()
 
+
+def parseSignal(signal):
+    count = 0
+    temp = ''
+    out = ''
+    for b in signal:
+        temp = temp + b
+        if(len(temp) == 8):
+            if(temp == endT()):
+                return out
+            else:
+                out = out + binToChar(temp)
+                temp=''
+    return out
+    
+
 """
 t = stringToBinary("test")
 print(t)
 print('Length of binary string:  ' + str(len(t)))
 print('EndT:  ' + endT())
-print(generateSignal('test'))
+signal = generateSignal('Another rather difficult string....')
+print(signal)
+print(parseSignal(signal[1:]))
 """
