@@ -7,7 +7,7 @@ GPIO.setup(18, GPIO.OUT)
 GPIO.setup(15, GPIO.IN)
 #GPIO.output(18, True)
 
-bin = convert.generateSignal("Hello Devon! This is a longer string. It might break...")
+bin = convert.generateSignal("Hello World!")
 waitTime = 0.1
 for letter in bin:
     if(letter == '1'):

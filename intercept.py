@@ -10,10 +10,12 @@ GPIO.setup(INPUT_PIN, GPIO.IN)
 
 message = ""
 wait = 0.1
+character = [0,0,0,0,0,0,0,0]
+count = 0
 
 #initialize input to zero. On program start, assume no voltage
 bit = 0
-receiving = False
+recieving = False
 
 def parseMessage(message):
     print("Raw Binary Data:")
@@ -28,28 +30,37 @@ def parseMessage(message):
     data.close()
     print("All done!")
 
+def arrayToString(array):
+    return ''.join(str(x) for x in array)
+
 def onEdgeDetect(channel):
-    if(GPIO.input(INPUT_PIN)):
+    global bit
+    if(bit == 0):
         bit = 1
         return
     bit = 0
 
-GPIO.add_event_detect(INPUT_PIN, GPIO.BOTH, callback=onEdgeDectect, bouncetime=100)
+GPIO.add_event_detect(INPUT_PIN, GPIO.BOTH, callback=onEdgeDetect)
 
 while(1):
-    character = character + str(bit)
-    if (len(character) == 8 ):
-        print(character)
-        if (convert.startT() == character and not recieving):
-            recieving = True
-	elif (convert.endT() == character and recieving):
-	    message = message + character
-	    parseMessage()
-            recieving = False
-            break
-        elif(recieving):
-	    message = message + character
-	    character = ""
-	time.sleep(waiti)
+    character.pop(0)
+    character.append(bit)
+    if(convert.startT() == arrayToString(character) and not recieving):
+        recieving = True
+        print("RECIEVED START CHARACTER")
+        count = 0
+        recieving = True
+    elif (convert.endT() == arrayToString(character) and recieving and count == 7):
+	message = message + arrayToString(character)
+	parseMessage(message)
+        recieving = False
+        break
+    elif(recieving and count == 7):
+        print(arrayToString(character))
+	message = message + arrayToString(character)
+        count = 0
+    elif(recieving):
+        count = count + 1
+    time.sleep(wait)
 
 GPIO.cleanup()
