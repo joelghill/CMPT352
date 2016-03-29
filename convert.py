@@ -10,10 +10,10 @@ def stringToBinary(str):
         """
         out = out + charToBinary(letter)
     return out
-        
+
 
 def charToBinary(c):
-    
+
     b = '{0:b}'.format(ord(c))
     if(len(b)<8):
         remaining = 8 - len(b)
@@ -23,15 +23,17 @@ def charToBinary(c):
     return pre + b
 
 def endT():
-    return '00000' + '{0:b}'.format(4)
+    return '11010' + '{0:b}'.format(4)
 
+def startT():
+    return '00010' + '{0:b}'.format(4)
 
 def binToChar(b):
     return chr(int(b,2))
 
 
 def generateSignal(s):
-    return '1' + stringToBinary(s) + endT()
+    return startT() + stringToBinary(s) + endT()
 
 
 def parseSignal(signal):
@@ -47,7 +49,7 @@ def parseSignal(signal):
                 out = out + binToChar(temp)
                 temp=''
     return out
-    
+
 
 """
 t = stringToBinary("test")
