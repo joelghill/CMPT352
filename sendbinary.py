@@ -5,7 +5,7 @@ import convert
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(18, GPIO.OUT)
 GPIO.setup(15, GPIO.IN)
-GPIO.output(18, True)
+#GPIO.output(18, True)
 
 bin = convert.generateSignal("Hello Devon! This is a longer string. It might break...")
 waitTime = 0.1
@@ -15,9 +15,10 @@ for letter in bin:
     else:
         GPIO.output(18, False)
     sleep(waitTime)
-    
+
+GPIO.output(18, False)
 GPIO.cleanup()
-    
-            
-            
-        
+
+
+
+
