@@ -8,7 +8,7 @@ GPIO.setup(15, GPIO.IN)
 #GPIO.output(18, True)
 
 bin = convert.generateSignal("Hello World!")
-waitTime = 0.1
+waitTime = 0.01
 for letter in bin:
     if(letter == '1'):
         GPIO.output(18, True)

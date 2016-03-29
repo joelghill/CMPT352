@@ -9,7 +9,7 @@ GPIO.setwarnings(False)
 GPIO.setup(INPUT_PIN, GPIO.IN)
 
 message = ""
-wait = 0.1
+wait = 0.01
 character = [0,0,0,0,0,0,0,0]
 count = 0
 
