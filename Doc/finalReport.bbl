@@ -1,10 +1,23 @@
 \begin{thebibliography}{1}
 
+\bibitem{atlantic}
+The Atlantic.
+\newblock {\em The Creepy, Long-Standing Practice of Undersea Cable Tapping},
+  2013(Accessed 2016-04-18).
+\newblock
+  \url{http://www.theatlantic.com/international/archive/2013/07/the-creepy-long-standing-practice-of-undersea-cable-tapping/277855/}.
+
 \bibitem{faraday}
 HyperPhysics.
 \newblock {\em Faraday's Law}, Accessed 2016-02-14.
 \newblock
   \url{http://hyperphysics.phy-astr.gsu.edu/hbase/electric/farlaw.html#c1}.
+
+\bibitem{magneticfields}
+HyperPhysics.
+\newblock {\em Magnetic Fields of Current}, Accessed 2016-02-14.
+\newblock
+  \url{http://hyperphysics.phy-astr.gsu.edu/hbase/magnetic/magcur.html}.
 
 \bibitem{opterna}
 Opterna For~Enlightened Networks.
