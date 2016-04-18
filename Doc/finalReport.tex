@@ -48,7 +48,7 @@ Even if nothing can be fully secure, it is possible to stop intrusion or minimiz
 
 \section{Interception of Electrical Signals}
 
-Faraday?s law states that a closed circuit can be acted upon by an electromagnetic force if the surrounding magnetic field undergoes a change in state. Changes in the position of the circuit relative to the field, the intensity of the field, or the orientation of the circuit relative to the field will all generate an EMF that acts on the circuit. \cite{faraday}
+Faraday's law states that a closed circuit can be acted upon by an electromagnetic force if the surrounding magnetic field undergoes a change in state. Changes in the position of the circuit relative to the field, the intensity of the field, or the orientation of the circuit relative to the field will all generate an EMF that acts on the circuit. \cite{faraday}
 
 If the closed circuit within the magnetic field happens to be a wire coil, the EMF induced on the coil with produce a voltage difference within the coil as described in the following equation:
 
@@ -60,7 +60,7 @@ Where $V$ is voltage, $N$ is the number of coils in the circuit, $\Delta B A$ is
  
 It is also known that current traveling in a straight line through a wire with produce a perpendicular magnetic field around the wire. Since data sent via a wired transmission is represented by high and low voltage states, it is also the case that a wired transmission of data will produce a magnetic flux in the area around the wire that is also representative of the data \cite{magneticfields}.
  
-It is hypothesized that a closed circuit can be be designed that will take advantage of Faraday?s law and detect the changing magnetic fields around a wired data transmission. This hypothetical device could then allow a user to parse the voltage changes into binary data and intercept the wired transmission without physically altering the wire in any way.
+It is hypothesized that a closed circuit can be designed that will take advantage of Faraday's law and detect the changing magnetic fields around a wired data transmission. This hypothetical device could then allow a user to parse the voltage changes into binary data and intercept the wired transmission without physically altering the wire in any way.
 
 \subsection{Experiments and Methods}
 Several experiments were conducted in order to test the practicality of wirelessly intercepting a wired transmission via magnetic fields.
@@ -78,17 +78,17 @@ It was hypothesized that by surrounding an audio cable with the wire coil as an 
 
 An experiment was conducted where music was played from a receiver to a set of external speakers via a standard audio cable. The wire coil was placed around the audio cable and plugged into an audio input jack on a nearby computer. As the music played, the voltage from the wire coil was recorded.
 
-It was observed that current was indeed produced in the wire coil due to the audio transmitted through the cable. The resulting signal however did not resemble the original data being sent. Based on Faraday?s law this was expected, since only changes in magnetic fields produce voltage in the coil, not constant values. This means the analog signal produces a corresponding but different signal in the coil.
+It was observed that current was indeed produced in the wire coil due to the audio transmitted through the cable. The resulting signal however did not resemble the original data being sent. Based on Faraday's law this was expected, since only changes in magnetic fields produce voltage in the coil, not constant values. This means the analog signal produces a corresponding but different signal in the coil.
 
 \subsubsection{Intercepting Digital Data Sent From Raspberry Pi Computer}
 
 Raspberry Pis are single board Linux computers with built in General Purpose Input/Output(GPIO) pins. It was determined that a custom data transfer protocol could be written that would use the GPIO pins to send data from one Raspberry Pi computer to another. This would allow for ideal conditions in which the interception of data via magnetic fields could be tested since the data would be send over a single wire, the frequency of the data could be controlled, and the Voltage/Current was a known value.
 
-A custom data protocol was written in Python. The data was transferred by converting short strings of text into binary numbers representing the ASCII values of the individual characters. Each message was also preceded by a start character, and terminated by a predetermined end character. Two separate scripts were used: one to parse and send the message, and the other to listen and receive the message. In both cases, each program was hardcoded to use a constant frequency, and to use voltage changes in the GPIO pins as representations of 1\textquoteright s and\textquoteright s.
+A custom data protocol was written in Python. The data was transferred by converting short strings of text into binary numbers representing the ASCII values of the individual characters. Each message was also preceded by a start character, and terminated by a predetermined end character. Two separate scripts were used: one to parse and send the message, and the other to listen and receive the message. In both cases, each program was hard-coded to use a constant frequency, and to use voltage changes in the GPIO pins as representations of 1\textquoteright s and\textquoteright s.
 
-Tests were conducted on the protocol, and it was concluded that the method worked when sending short strings of characters from one Raspberry Pi computer to another. The wire coil from the previous experiment was then wrapped around the transmission wire and plugged into a laptop. As done in the analog signal test, the ?audio? from the wire coil was recorded as messages were sent.
+Tests were conducted on the protocol, and it was concluded that the method worked when sending short strings of characters from one Raspberry Pi computer to another. The wire coil from the previous experiment was then wrapped around the transmission wire and plugged into a laptop. As done in the analog signal test, the audio from the wire coil was recorded as messages were sent.
 
-It was observed that the downward and upward edges in the wireline transmission could be detected by the wire coil at various frequencies, although the data  was near impossible to parse without computer assistance. The results from sending an unending string of ones and zeros at various frequencies is illustrated in the following figures 2 and 3.
+It was observed that the downward and upward edges in the wire-line transmission could be detected by the wire coil at various frequencies, although the data  was near impossible to parse without computer assistance. The results from sending an unending string of ones and zeros at various frequencies is illustrated in the following figures 2 and 3.
 
 \begin{figure}
 	\includegraphics[width=\linewidth]{images/100hz.png}
@@ -102,13 +102,13 @@ It was observed that the downward and upward edges in the wireline transmission 
 	\label{fig:10hz}
 \end{figure}
 
-After confirming that the data send via wireline from one Raspberry Pi to another could be detected by a wire coil, and attempt was made to have a third computer interpret the data and parse the message.
+After confirming that the data send via wire-line from one Raspberry Pi to another could be detected by a wire coil, and attempt was made to have a third computer interpret the data and parse the message.
 
 A single Raspberry Pi was reconfigured to send a message to itself by directly wiring an output pin to an input pin. The second raspberry pin was connected to a wire coil that was wrapped around the data transmission line. Attempts were made to intercept the message as it was transmitted through the data cable. It was observed that the wire coil was not producing enough voltage to be detected by the GPIO pins, and so a different approach was needed.
 
 \subsubsection{Intercepting Digital Signal Sent From Square Wave Generator}
 
-The Raspberry Pi experiments demonstrated that the wire coil was capable of responding to a wireline transmission of data, but a precise correlation between high and low voltage edges in the data transmission and the signal generated from the wire coil was not observed.
+The Raspberry Pi experiments demonstrated that the wire coil was capable of responding to a wire-line transmission of data, but a precise correlation between high and low voltage edges in the data transmission and the signal generated from the wire coil was not observed.
 
 Rather than using a Raspberry Pi computer, a square wave generator was used to simulate a digital data signal. It was theorized that a square wave generator could transmit data at a higher power level, thus producing a stronger magnetic field. The generator was set to produce a wave with amplitude of 5V at a frequency of 100Hz. This simulates a bit rate of 0.1Kb/s.
 
