@@ -1,0 +1,22 @@
+\begin{thebibliography}{1}
+
+\bibitem{faraday}
+HyperPhysics.
+\newblock {\em Faraday's Law}, Accessed 2016-02-14.
+\newblock
+  \url{http://hyperphysics.phy-astr.gsu.edu/hbase/electric/farlaw.html#c1}.
+
+\bibitem{opterna}
+Opterna For~Enlightened Networks.
+\newblock {\em Vulnerability of Fiber Optic Infrastructure to Intrusion},
+  Accessed 2016-04-18.
+\newblock \url{http://www.certconf.org/presentations/2003/Tues/TG2.pdf}.
+
+\bibitem{sans}
+SANS Institute InfoSec~Reading Room.
+\newblock {\em Fiber Optics and its Security Vulnerabilities}, 2005 (Accessed
+  2016-04-18).
+\newblock
+  \url{https://www.sans.org/reading-room/whitepapers/physical/fiber-optics-security-vulnerabilities-1648}.
+
+\end{thebibliography}
